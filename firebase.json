@@ -1,6 +1,6 @@
 {
   "firebase": "blazing-fire-7386",
-  "public": ".",
+  "public": "./dist",
   "ignore": [
     "firebase.json",
     "**/.*",
