@@ -1,1 +1,9 @@
-{{outlet}}
+All Updates
+<div class="container-fluid">
+  <section>
+  {{#each update in arrangedContent}}
+    <div class="col-x-4">{{update.author}}</div>
+    <div class="col-x-8">{{update.status}}</div>
+  {{/each}}
+  </section>
+</div>
