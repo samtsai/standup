@@ -1,27 +1,25 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
-var Ref = new window.Firebase(config.firebaseURL);
+var ref = new window.Firebase(config.firebaseURL);
 
 var auth = Ember.Object.extend({
   authed: false,
   username: '',
   init: function() {
-    this.authClient = new window.FirebaseSimpleLogin(Ref, function(error, githubUser) {
+    this.authClient = ref.authWithOAuthPopup("github", function(error, authData) {
       if (error) {
-        alert('Authentication failed: ' + error);
-      } else if (githubUser) {
-        this.set('authed', true);
-        this.set('username',githubUser.username);
+        console.log("Login Failed!", error);
       } else {
-        this.set('authed', false);
+        console.log("Authenticated successfully with payload:", authData);
+        this.set('authed', true);
       }
     }.bind(this));
   },
 
   logout: function() {
     this.authClient.logout();
-        this.set('authed', false);
+    this.set('authed', false);
   }
 });
 
