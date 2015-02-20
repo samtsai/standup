@@ -22,7 +22,8 @@ module.exports = function(environment) {
       'connect-src': "'self' wss://*.firebaseio.com",
       'frame-src': "'self' https://*.firebaseio.com",
       'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com"
-    }
+    },
+    firebaseURL: 'https://blazing-fire-7386.firebaseio.com'
   };
 
   if (environment === 'development') {

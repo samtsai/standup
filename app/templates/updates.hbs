@@ -1,14 +1,9 @@
-<div class="container-fluid">
-  <h2>New Update</h2>
-  <form>
-    <div class="form-group">
-      <label for="author">Author</label>
-      {{input id="author" class="form-control" value=update.author placeholder="Author"}}
-    </div>
-    <div class="form-group">
-      <label for="status">Status</label>
-      {{textarea id="status" class="form-control" rows="3" value=update.status placeholder="Status"}}
-    </div>
-    <button class="btn btn-default" {{action "publishUpdate"}}>Publish</button>
-  </form>
+<div class="row">
+  <div class="col-md-4">
+    <h1>Status Updates</h1>
+    {{#each s in model}}
+      <br />{{#link-to 'updates.edit' s.id}} {{s.title}}{{/link-to}}
+    {{/each}}
+  </div>
+  {{outlet}}
 </div>

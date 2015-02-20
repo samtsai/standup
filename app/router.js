@@ -6,7 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('updates');
+  this.resource("updates", function() {
+    this.route("new");
+    this.route("edit",{
+      path: ":update_id"
+    });
+  });
 });
 
 export default Router;

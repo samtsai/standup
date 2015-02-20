@@ -3,10 +3,10 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
-    'ember-bootstrap': {
-        'importBootstrapTheme': true
-    },
-    'handlebars.js': null
+  'ember-bootstrap': {
+    'importBootstrapTheme': true
+  },
+  'handlebars.js': null
 });
 
 // Use `app.import` to add additional libraries to the generated
