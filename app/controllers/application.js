@@ -3,17 +3,14 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   needs: ['updates/edit'],
   actions: {
-    login: function() {
-      var route = this;
-      (this.get('auth').authClient.login('twitter')).then(function(){
-        this.get('auth').set('authed', true);
-        return route.transitionTo('posts');
-        });
-      },
+    login: function(provider) {
+      this.session.login(provider, {scope: 'email'});
+    },
+
     logout: function() {
-      this.get('auth').logout();
-      this.set('controllers.posts/edit.isEditing', false);
-      this.transitionToRoute('posts');
+      this.session.logout();
+      this.set('controllers.updates/edit.isEditing', false);
+      this.transitionToRoute('updates');
     }
   }
 });

@@ -19,7 +19,7 @@
   <h5>-{{model.author}}</h5>
   <h5>{{format-date model.date}}</h5>
   <form {{action 'edit' on="click"}}>
-    {{#if auth.authed}}
+    {{#if session.authed}}
     <button type="submit" class="bt btn-primary">Edit</button>
     {{/if}}
   </form>

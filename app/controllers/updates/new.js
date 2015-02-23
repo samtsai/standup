@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   actions: {
     save: function() {
       var status= this.get('status');
-      var author= this.get('auth').username;
+      var author= this.get('session').name;
       var date = new Date();
       if(!status.trim()) {return; } //empty string
 

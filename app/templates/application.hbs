@@ -10,10 +10,10 @@
       {{/if}}
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      {{#unless auth.authed}}
-      <li><a href="#" {{action 'login' on='click'}}>Login</a></li>
+      {{#unless session.authed}}
+      <li><a href="#" {{action 'login' 'github'}}>Login</a></li>
       {{else}}
-      <li><a href="#" {{action 'logout' on='click'}}>Logout</a></li>
+      <li><a href="#" {{action 'logout' 'github'}}>Logout</a></li>
       {{/unless}}
     </ul>
   </div>
