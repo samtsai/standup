@@ -1,10 +1,18 @@
 import Ember from 'ember';
 
+var scope = {
+  'github': 'user',
+  'google': 'email',
+  'twitter': 'email'
+};
+
 export default Ember.Controller.extend({
   needs: ['updates/edit'],
   actions: {
     login: function(provider) {
-      this.session.login(provider, {scope: 'email'});
+      this.session.login(provider, {
+        scope: scope.provider
+      });
     },
 
     logout: function() {

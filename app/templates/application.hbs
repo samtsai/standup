@@ -13,7 +13,7 @@
       {{#unless session.authed}}
       <li><a href="#" {{action 'login' 'github'}}>Login with GitHub</a></li>
       {{else}}
-      <li><a href="#" {{action 'logout' 'github'}}>Logout</a></li>
+      <li><a href="#" {{action 'logout'}}>Logout</a></li>
       {{/unless}}
     </ul>
   </div>

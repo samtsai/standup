@@ -15,7 +15,7 @@
  * In your templates: <button {{action 'login' 'google'}}>Log in with Google</button>
  * In your actions (on the application route for example):
 	login: function(provider) {
-		this.session.login(provider, {scope: 'email'});
+		this.session.login(provider, {scope: 'user,email'});
 	},
 
 	logout: function() {
@@ -140,13 +140,14 @@ export function initialize( container, app ) {
 
   	// Create a new user
   	createUser: function(userId) {
-  		var _this = this;
+  		var _this = this,
+        _provider = this.get('authData.provider');
 
   		this.get('store').createRecord('user', {
   			id: userId,
-  			provider: this.get('authData.provider'),
-  			name: this.get('authData.facebook.displayName') || this.get('authData.google.displayName'),
-  			email: this.get('authData.facebook.email') || this.get('authData.google.email'),
+  			provider: _provider,
+  			name: this.get('authData.' + _provider + '.displayName'),
+  			email: this.get('authData.' + _provider + '.email'),
   			created: new Date().getTime()
   		}).save().then(function(user){
   			// Proceed with the newly create user
