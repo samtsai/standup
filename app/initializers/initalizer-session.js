@@ -69,6 +69,7 @@ export function initialize( container, app ) {
   			// Authenticated
   			this.set('authed', true);
   			this.set('authData', authData);
+        console.log('authData', authData);
   			this.afterAuthentication(authData.uid);
   		}.bind(this));
     },

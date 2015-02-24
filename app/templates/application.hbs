@@ -5,17 +5,19 @@
     </div>
     <ul class="nav navbar-nav">
       <li>{{#link-to 'updates'}}Updates{{/link-to}}</li>
-      {{#if auth.authed}}
+      {{#if session.authed}}
       <li>{{#link-to 'updates.new'}}Add New Update{{/link-to}}</li>
       {{/if}}
     </ul>
     <ul class="nav navbar-nav navbar-right">
       {{#unless session.authed}}
-      <li><a href="#" {{action 'login' 'github'}}>Login</a></li>
+      <li><a href="#" {{action 'login' 'github'}}>Login with GitHub</a></li>
       {{else}}
       <li><a href="#" {{action 'logout' 'github'}}>Logout</a></li>
       {{/unless}}
     </ul>
   </div>
 </nav>
-{{outlet}}
+<div class="container-fluid">
+  {{outlet}}
+</div>

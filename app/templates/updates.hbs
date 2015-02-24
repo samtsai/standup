@@ -2,7 +2,7 @@
   <div class="col-md-4">
     <h1>Status Updates</h1>
     {{#each s in model}}
-      <br />{{#link-to 'updates.edit' s.id}} {{s.title}}{{/link-to}}
+      <br />{{#link-to 'updates.edit' s.id}} {{s.status}}{{/link-to}}
     {{/each}}
   </div>
   {{outlet}}

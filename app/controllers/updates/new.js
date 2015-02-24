@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
       var status= this.get('status');
       var author= this.get('session').name;
       var date = new Date();
-      if(!status.trim()) {return; } //empty string
+      // if(!status.trim()) {return; } //empty string
 
       var update = this.store.createRecord('update', {
         status:status,
